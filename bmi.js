@@ -29,7 +29,7 @@
  */
 
 const LINE = "-----------------------------------------------------";
-let bmr, bmi, normal, danger;
+ //let bmr, bmi, normal, danger;
 
 /**
  * Formulas:
@@ -77,3 +77,65 @@ console.log(LINE); // Logs the dashed-line.
  * TODO: Make sure to TEST YOUR SOFTWARE! Does it work, when People are smaller than 1 meter? Or taller than 2?
  * Tip: An 18-Year old Woman, sized 160cm with 60 kg should have a BMR of 1467 kcal and a BMI of 23.4375.
  */
+
+let weight = 0;
+let height = 0;
+let age = 0;
+let sex = "";
+let last = "";
+let first = "";
+
+last = prompt("Last Name");
+last = last.toUpperCase();
+first = prompt("First Name");
+console.log("Name: " + last + " " + first);
+
+console.log(LINE);
+
+age = prompt("Age");
+console.log("Age: " + age + " Years");
+
+height = prompt("Height (m)");
+console.log("Height: " + height + "m");
+
+do {
+    sex = prompt("Sex: (male/female)");
+} while (sex.toLowerCase() != "male" && sex.toLowerCase() != "female");
+console.log("Sex: " + sex);
+height = height * 100 // --> cm for bmi
+
+weight = prompt("Weight (kg)");
+console.log("Weight: " + weight + " kg");
+
+let bmi = (10000 * weight) / (height ** 2);
+let bmr = "";
+
+if(sex == "male"){
+    bmr = 66 + 14 * weight + 5 * height - 7 * age
+}
+if (sex == "female"){
+    bmr = 655 + 10 * weight + 2 * height - 6 * age
+}
+
+console.log("Basal Metabolic Rate: " + bmr + " kcal");
+console.log("Body Mass Index:" + bmi);
+
+let normal= "";
+let danger = "";
+
+//(bmi < 18 && bmi > 25 ? normal = "Yes" : normal = "No");     --> is that correct?
+if(bmi < 18 && bmi > 25){
+    normal = "Yes"
+} else {
+    normal = "No"
+}
+
+//(bmi < 16 && bmi > 30 ? danger = "Yes" : danger = "No");     --> that too?
+if(bmi < 16 && bmi > 30){
+    danger = "Yes"
+} else {
+    danger = "No"
+}
+console.log("Normal Weight: " + normal);
+console.log("Danger: " + danger);
+console.log(LINE);
