@@ -139,3 +139,4 @@ if(bmi < 16 && bmi > 30){
 console.log("Normal Weight: " + normal);
 console.log("Danger: " + danger);
 console.log(LINE);
+
